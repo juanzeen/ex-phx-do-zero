@@ -1,7 +1,9 @@
 defmodule Game.Actions do
   alias Game.Actions.Attack
+  alias Game.Actions.Heal
+
   def fetch_move(move) do
-    ExMon.Agent.fetch_player
+    ExMon.Agent.fetch_player()
     |> Map.get(:moves)
     |> find_move(move)
   end
@@ -12,12 +14,15 @@ defmodule Game.Actions do
     end)
   end
 
-  defp heal do
-
+  def heal do
+    case ExMon.Agent.get_turn() do
+      :player -> Heal.heal_life(:player)
+      :computer -> Heal.heal_life(:computer)
+    end
   end
 
   def attack(move) do
-    case ExMon.Agent.get_turn do
+    case ExMon.Agent.get_turn() do
       :player -> Attack.attack_oponent(:computer, move)
       :computer -> Attack.attack_oponent(:player, move)
     end

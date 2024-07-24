@@ -7,7 +7,7 @@ defmodule ExMon.Player do
   def build(name, move_avg, move_rnd, move_heal) do
     %ExMon.Player{
       name: name,
-      moves: %{ move_avg: move_avg,move_rnd: move_rnd, move_heal: move_heal},
+      moves: %{move_avg: move_avg, move_rnd: move_rnd, move_heal: move_heal},
       life: @max_life
     }
   end
