@@ -1,5 +1,4 @@
 defmodule Game.Status do
-  alias Game.Actions
 
   def print_round(%{status: :started, turn: player} = info) do
     IO.puts("\n===== The game is started! =====\n")
