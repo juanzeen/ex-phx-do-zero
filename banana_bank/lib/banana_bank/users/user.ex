@@ -3,7 +3,7 @@ defmodule BananaBank.Users.User do
   import Ecto.Changeset
 
   @required_params [:name, :password, :email, :cep]
-  #modelo lógico de dados
+  @derive {Jason.Encoder, only: [:name]}
   schema "users" do
     field :name, :string
     #o campo password só existe no schema, nao está na migration
