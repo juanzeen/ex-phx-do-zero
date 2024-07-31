@@ -26,6 +26,7 @@ defmodule BananaBank.Users.User do
     |> validate_required(@create_required_params)
     |> validate_length(:name, min: 3)
     |> validate_length(:cep, is: 8)
+    |> validate_length(:password, min: 6)
     |> validate_format(:email, ~r/@/)
     |> add_password_hash
   end
