@@ -7,7 +7,15 @@ defmodule BananaBankWeb.FallbackController do
     |> put_status(:not_found)
     |> put_view(json: BananaBankWeb.ErrorJSON)
     |> render(:error, status: :not_found)
-end
+  end
+
+  def call(conn, {:error, :bad_request}) do
+    conn
+    |> put_status(:bad_request)
+    |> put_view(json: BananaBankWeb.ErrorJSON)
+    |> render(:error, status: :bad_request)
+  end
+
 
   #create function
   def call(conn, {:error, changeset}) do
