@@ -10,8 +10,8 @@ defmodule BananaBank.Users.Update do
   end
 
   def update_user(user, params) do
-  user
-  |> User.changeset(params)
-  |> Repo.update()
+    user
+    |> User.changeset(params)
+    |> Repo.update()
   end
 end

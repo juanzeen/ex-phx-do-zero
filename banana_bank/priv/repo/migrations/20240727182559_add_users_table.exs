@@ -9,7 +9,7 @@ defmodule BananaBank.Repo.Migrations.AddUsersTable do
       add :cep, :string, null: false
 
       timestamps()
-      #adiciona as colunas inserted_at e updated_at
+      # adiciona as colunas inserted_at e updated_at
     end
   end
 end

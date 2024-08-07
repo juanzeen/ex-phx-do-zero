@@ -12,6 +12,6 @@ defmodule BananaBank.Users.Create do
   end
 
   defp client() do
-    Application.get_env(:banana_bank,:via_cep_client , ViaCepClient)
+    Application.get_env(:banana_bank, :via_cep_client, ViaCepClient)
   end
 end

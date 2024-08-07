@@ -22,7 +22,7 @@ defmodule BananaBank.Users.User do
     # começamos dessa forma pois como estamos lidando com inserção, devemos
     # lidar inicialmente com uma struct vazia para que ela receba os
     # dados do params e assim torne-se válida para ser colocada no DB
-  %__MODULE__{}
+    %__MODULE__{}
     |> cast(params, @create_required_params)
     |> validate_required(@create_required_params)
     |> validate_length(:name, min: 3)

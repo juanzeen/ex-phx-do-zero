@@ -3,7 +3,8 @@ defmodule BananaBankWeb.WelcomeController do
 
   def index(conn, _params) do
     conn
-    |> put_status(:ok) #mesma coisa que HTTP 200
+    # mesma coisa que HTTP 200
+    |> put_status(:ok)
     |> json(%{message: "testando o json", status: :ok})
   end
 end
