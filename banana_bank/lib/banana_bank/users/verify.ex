@@ -3,15 +3,15 @@ defmodule BananaBank.Users.Verify do
 
   def call(%{"id" => id, "password" => password}) do
     case Users.get(id) do
-      {:ok, user} -> verify(password, user.password_hash)
+      {:ok, user} -> verify(user, password)
       {:error, _message} = error -> error
     end
   end
 
-  defp verify(password, hash) do
-    case Argon2.verify_pass(password, hash) do
-      true -> {:ok, :valid_passord}
-      false -> {:error, :invalid_passord}
+  defp verify(user, password) do
+    case Argon2.verify_pass(password, user.password_hash) do
+      true -> {:ok, user}
+      false -> {:error, :invalid_password}
     end
   end
 end
